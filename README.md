@@ -24,6 +24,17 @@ All emails sent by the local nhost instance can be found in
 - Mailhog:		http://localhost:8025
 ```
 
+## Local development
+
+To start the local development stack, run the following:
+
+```
+cd backend && mkdir -R migrations/default && nhost up
+cd app && yarn install && yarn dev
+```
+
+Note: we need to create the migrations folder (empty because no datamodel yet) otherwise nhost will not start.
+
 # Sources
 
 - This amazing tutorial: [Build a real time chat app with nextjs and nhost](https://alterclass.io/tutorials/build-a-real-time-chat-app-with-nextjs-and-nhost)
