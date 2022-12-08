@@ -1,6 +1,4 @@
 .nhost
-# This is the local dev config of nhost
-backend/nhost/config.yaml
 web/node_modules
 node_modules
 functions/node_modules
