@@ -3,13 +3,16 @@ import Head from 'next/head'
 import Image from 'next/image'
 import Form from '../components/Form'
 import { useAuthenticationStatus } from '@nhost/nextjs'
+import { useUserData } from '@nhost/nextjs'
 import Spinner from '../components/Spinner'
 import Login from '../components/Login'
+import UserMenu from '../components/UserMenu'
 
 import logo from '../public/logo.svg'
 
 const Home: NextPage = () => {
   const { isLoading: isLoadingUser, isAuthenticated } = useAuthenticationStatus()
+  const user = useUserData()
 
   return (
     <>
@@ -22,6 +25,7 @@ const Home: NextPage = () => {
         <header className="h-14 bg-white shadow">
           <div className="container mx-auto flex h-full items-center justify-between px-4">
             <Image src={logo} />
+            {isAuthenticated && user ? <UserMenu {...user} /> : null}
           </div>
         </header>
 

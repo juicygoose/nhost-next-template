@@ -7,7 +7,14 @@ import { Toaster } from 'react-hot-toast'
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <MantineProvider withGlobalStyles withNormalizeCSS>
+    <MantineProvider
+      withCSSVariables
+      withGlobalStyles
+      withNormalizeCSS
+      theme={{
+        /** Put your mantine theme override here */
+        colorScheme: 'light',
+      }}>
       <NhostNextProvider nhost={nhost} initial={pageProps.nhostSession}>
         <Component {...pageProps} />
         <Toaster />

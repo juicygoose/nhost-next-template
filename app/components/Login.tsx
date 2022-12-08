@@ -1,10 +1,9 @@
 import Image from 'next/image'
 
-import { TextInput, Button, Group, Box } from '@mantine/core';
+import { TextInput, Button, Group } from '@mantine/core';
 import { useForm } from '@mantine/form';
 
 import logo from '../public/logo.svg'
-import githubLogo from '../public/github.svg'
 import { useSignInEmailPasswordless } from '@nhost/react';
 
 
@@ -43,7 +42,14 @@ const Login = () => {
             />
 
             <Group position="right" mt="md">
-              <Button type="submit" loading={isLoading}>Submit</Button>
+              <Button
+                className="group relative flex justify-center bg-sky-600 hover:bg-sky-700"
+                type="submit"
+                loading={isLoading}
+                radius="xs"
+              >
+                Submit
+              </Button>
             </Group>
           </form>
         </div>
