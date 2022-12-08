@@ -35,6 +35,11 @@ cd app && yarn install && yarn dev
 
 Note: we need to create the migrations folder (empty because no datamodel yet) otherwise nhost will not start.
 
+## Production deployment
+
+In order to deploy the application, a nhost project must be linked to this repo (with base folder being `./backend`).
+For the Next.js app, the base folder is `./app` and the two environment variables from `.env.local` must be filled (with the real values from the nhost project).
+
 # Sources
 
 - This amazing tutorial: [Build a real time chat app with nextjs and nhost](https://alterclass.io/tutorials/build-a-real-time-chat-app-with-nextjs-and-nhost)
