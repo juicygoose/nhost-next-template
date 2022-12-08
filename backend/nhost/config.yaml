@@ -24,10 +24,10 @@ auth:
   client_url: http://localhost:3000
   disable_new_users: false
   email:
-    enabled: false
+    enabled: true
     passwordless:
-      enabled: false
-    signin_email_verified_required: true
+      enabled: true
+    signin_email_verified_required: false
     template_fetch_url: ""
   gravatar:
     default: ""

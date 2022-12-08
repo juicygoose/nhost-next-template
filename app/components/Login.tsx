@@ -1,24 +1,51 @@
 import Image from 'next/image'
 
+import { TextInput, Button, Group, Box } from '@mantine/core';
+import { useForm } from '@mantine/form';
+
 import logo from '../public/logo.svg'
 import githubLogo from '../public/github.svg'
+import { useSignInEmailPasswordless } from '@nhost/react';
+
 
 const Login = () => {
-  // TODO: Implement Google+Github authentication
+  const { signInEmailPasswordless, isLoading, isSuccess, isError, error } =
+    useSignInEmailPasswordless()
+
+
+  const handleFormSubmit = async (email: string) => {
+    await signInEmailPasswordless(email)
+  }
+
+  const form = useForm({
+    initialValues: {
+      email: '',
+    },
+
+    validate: {
+      email: (value) => (/^\S+@\S+$/.test(value) ? null : 'Invalid email'),
+    },
+  });
+
 
   return (
     <div className="w-full max-w-md">
       <div className="flex flex-col items-center border-opacity-50 px-4 py-8 sm:rounded-xl sm:border sm:px-8 sm:shadow-md">
         <Image src={logo} alt="logo" />
-        <p className="mt-4 text-center">Please sign in to access the chat</p>
+        <p className="mt-4 text-center">Please sign in to access the app</p>
         <div className="mt-8 space-y-4">
-          <a
-            href="#"
-            className="flex items-center justify-center space-x-2 rounded-md border border-opacity-50 px-6 py-2 hover:bg-gray-50"
-          >
-            <Image src={githubLogo} alt="Github" width={32} height={32} />
-            <span>Sign in with Github</span>
-          </a>
+          <form onSubmit={form.onSubmit((values) => handleFormSubmit(values.email))}>
+            <TextInput
+              withAsterisk
+              label="Email"
+              placeholder="your@email.com"
+              {...form.getInputProps('email')}
+            />
+
+            <Group position="right" mt="md">
+              <Button type="submit" loading={isLoading}>Submit</Button>
+            </Group>
+          </form>
         </div>
       </div>
     </div>
