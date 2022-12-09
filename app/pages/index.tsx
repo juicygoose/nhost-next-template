@@ -1,7 +1,7 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import { useAuthenticationStatus } from '@nhost/nextjs'
-import { Loader } from '@mantine/core';
+import { Center, Loader } from '@mantine/core';
 import Login from '../components/Login'
 import AppHeader from '../components/AppHeader'
 import HeroText from '../components/HeroText';
@@ -21,7 +21,9 @@ const Home: NextPage = () => {
 
         <main>
           {isLoadingUser ? (
-            <Loader />
+            <Center>
+              <Loader variant="bars" className="justify-center" />
+            </Center>
           ) : !isAuthenticated ? (
             <Login />
           ) : (
