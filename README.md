@@ -4,7 +4,7 @@ This repo is an attempt at bundling a next.js typescript template with a nhost p
 
 ## Next.js
 
-The Next.js app uses tailwindcss as a style provider and mantine for general purpose UI elements.
+The Next.js app uses mantine for general purpose UI elements.
 
 The connexion to nhost local dev is done by creating a `.env.local` in the `app` folder.
 
