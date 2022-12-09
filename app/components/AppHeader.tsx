@@ -1,6 +1,15 @@
 import { useState } from 'react';
 import Image from 'next/image'
-import { createStyles, Header, Container, Group, Burger, Menu, UnstyledButton, Avatar, Text } from '@mantine/core';
+import {
+  createStyles,
+  Header,
+  Container,
+  Group,
+  Menu,
+  UnstyledButton,
+  Avatar,
+  Text
+} from '@mantine/core';
 import {
   IconLogout,
   IconChevronDown,
@@ -41,10 +50,6 @@ const useStyles = createStyles((theme) => ({
     '&:hover': {
       backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[8] : theme.white,
     },
-
-    [theme.fn.smallerThan('xs')]: {
-      display: 'none',
-    },
   },
 
   userActive: {
@@ -68,7 +73,6 @@ const AppHeader = () => {
         <Image src={logo} />
         {isAuthenticated && user ? (
           <>
-            <Burger opened={opened} onClick={toggle} className={classes.burger} size="sm" />
             <Menu
               width={260}
               position="bottom-end"
